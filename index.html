@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nguyễn Hữu Thịnh | AI Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* CSS Variables cho Theme Cyber-Terminal */
         :root {
@@ -70,22 +71,53 @@
             margin: 0 auto;
             display: flex; 
             justify-content: center; 
-            gap: 30px;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             color: var(--text-main); 
             text-decoration: none;
             font-weight: bold; 
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
-            padding: 5px 0;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 6px;
+            overflow: hidden;
         }
 
+        /* Icon styling */
+        .nav-links a i {
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Background badge effect */
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(0, 255, 204, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        /* Text underline effect */
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
@@ -95,11 +127,23 @@
 
         .nav-links a:hover {
             color: var(--accent-color);
-            text-shadow: 0 0 10px var(--accent-color);
+            text-shadow: 0 0 15px var(--accent-color);
+            transform: translateY(-3px);
         }
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .nav-links a:hover::before {
+            width: 120px;
+            height: 120px;
+        }
+
+        /* Icon hover animation */
+        .nav-links a:hover i {
+            transform: scale(1.3) rotate(10deg);
+            filter: drop-shadow(0 0 8px var(--accent-color));
         }
 
         /* Container chung */
@@ -516,8 +560,15 @@
             .hero { gap: 30px; }
             .hero-text h1 { font-size: 2.5rem; }
             .section-title { font-size: 2rem; }
-            .nav-links { gap: 15px; }
+            .nav-links { gap: 20px; }
             .grid { grid-template-columns: 1fr; }
+            .nav-links a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            .nav-links a i {
+                font-size: 1rem;
+            }
         }
 
         /* Scroll indicator */
@@ -543,10 +594,22 @@
 
     <nav>
         <div class="nav-links">
-            <a href="#about">~/Giới_thiệu</a>
-            <a href="#projects">~/Dự_án</a>
-            <a href="#certs">~/Chứng_chỉ</a>
-            <a href="#contact">~/Liên_hệ</a>
+            <a href="#about">
+                <i class="fas fa-user"></i>
+                <span>Giới_thiệu</span>
+            </a>
+            <a href="#projects">
+                <i class="fas fa-code"></i>
+                <span>Dự_án</span>
+            </a>
+            <a href="#certs">
+                <i class="fas fa-certificate"></i>
+                <span>Chứng_chỉ</span>
+            </a>
+            <a href="#contact">
+                <i class="fas fa-envelope"></i>
+                <span>Liên_hệ</span>
+            </a>
         </div>
     </nav>
 
